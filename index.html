@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
     <title>elliott yoon</title>
 </head>
 <body>
@@ -23,14 +24,19 @@
                 </div>
             </div>
         </div>
-        <a href="#test" class="heroTeleport"><i class="gg-chevron-down"></i></a>
+        <a href="#portfolio" class="heroTeleport"><i class="gg-chevron-down"></i></a>
     </section>
-    <div class="test" id="test">
-        <div class="h-box one">1</div>
-        <div class="h-box two">2</div>
-        <div class="h-box three">3</div>
-        <div class="h-box four">4</div>
+    <div class="caption" id="caption">
+        <div class="h-box" id="one">music junkie</div>
+        <div class="i-box" id="three">skateboarder</div>
+        <div class="k-box" id="two">math & cs student</div>
+        <div class="j-box" id="four">dog lover</div>
     </div>
+    <div class="portfolio" id="portfolio">
+        <h1>and welcome to my portfolio !</h1>
+        <p> it's a work in progress, so for now go to <a href="https://github.com/elliottyoon"  style="text-decoration: none; color: blue">my github</a></p>
+    </div>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
@@ -40,13 +46,15 @@
         var controller = new ScrollMagic.Controller();
 
         var scrollHorizontal = new TimelineLite()
-        scrollHorizontal.to("#test", 1, {x:'100%'})
-
+        scrollHorizontal.to("#two", 1, {x:'-95%'} )
+        scrollHorizontal.to("#one", 1, {x:'250%'})
+        scrollHorizontal.to("#four", 1, {x: '-200%'})
+        scrollHorizontal.to("#three", 1, {x:'250%'})
         var horizontalScroll = new ScrollMagic.Scene({
-            triggerElement: "#test",
+            triggerElement: "#caption",
             triggerHook: 'onLeave',
-            duration: 3000
-            }).setPin("#test").setTween(scrollHorizontal).addTo(controller);
+            duration: 5000
+            }).setPin("#caption").setTween(scrollHorizontal).addTo(controller);
     </script>
 </body>
 </html>

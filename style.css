@@ -29,6 +29,36 @@ body {
 
 }
 
+.h-box {
+  width:25vw;
+  height:100vh;
+}
+
+.v-box, .h-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.one {
+  background-color: #45CCFF;
+}
+.two {
+  background-color: #49E83E;
+}
+.three {
+  background-color: #EDDE05;
+}
+.four {
+  background-color: #E84B30;
+}
+
+#test {
+  display:flex;
+  flex-direction: row;
+}
+
 /* ============== Hero */
 
 .heroTeleport {

@@ -325,13 +325,15 @@ canvas {
 }
 .list-title {
   color: var(--color-dark-purple);
-  margin-top: 1.5rem;
   margin-bottom: 1rem;
 }
 .skill h1 {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   font-weight: bold;
+}
+.list-group {
+  padding: 1rem;
 }
 .skill p {
   /* font-family: Montserrat; */

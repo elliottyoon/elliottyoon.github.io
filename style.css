@@ -17,6 +17,14 @@ body {
   height: 100%;
 }
 
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 20px;
+  z-index: 200;
+}
+
 .hero {
   width: 100%;
   height: var(--hero-height);
@@ -54,14 +62,14 @@ body {
 
 .heroTeleport {
   position: absolute;
-  bottom: 2em;
+  bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
   background-color: transparent;
   border: none;
 }
 
-.heroTeleport:hover .gg-chevron-down {
+.heroTeleport:hover .gg-chevron-down, .gg-chevron-up:hover {
   color: var(--color-teal);
   transform: scale(1.75);
 }
@@ -107,7 +115,7 @@ canvas {
   box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25),0 8px 16px -8px rgba(0,0,0,0.3); 
 }
 .canvasContainer:hover .nameContent {
-  margin-top: -3.5em;
+  margin-top: -3.5rem;
   color: var(--color-purple);
   transition: all 0.5s ease-out;
 }
@@ -133,7 +141,7 @@ canvas {
   height: 100%;
   border-radius: var(--canvas-border-inner-radius);
 
-  padding-top: 2em;
+  padding-top: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -160,7 +168,7 @@ canvas {
 }
 
 
-.gg-chevron-down {
+.gg-chevron-down, .gg-chevron-up {
     color: grey;
     box-sizing: border-box;
     position: relative;
@@ -171,7 +179,7 @@ canvas {
     border: 2px solid transparent;
     border-radius: 100px
 }
-.gg-chevron-down::after {
+.gg-chevron-down::after{
     content: "";
     display: block;
     box-sizing: border-box;
@@ -260,6 +268,101 @@ canvas {
   font-weight: bold;
   font-size: var(--project-heading-font-size)
 }
+/* ============================================== Skills */
+.skills {
+  height: 150vh;
+  width: 100vw;
+  position: relative;
+  /* background-color: lightblue; */
+}
+.skills * {
+  text-align: center;
+}
+.skills-background {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background-color: var(--color-dark-purple);
+}
+.box {
+  z-index: 10;
+  width: 80vw;
+  height: 100vh;
+
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 5px 5px 0 rgb(233 240 243 / 60%), 0 0 0 1px #e6ecf8;
+  color: #141c3a;
+  display: block;
+}
+.skills-content {
+  position: relative;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.skill-container {
+  padding: 2rem;
+}
+.border-right {
+  border-right: 1px solid #E6ECF8;
+}
+.skill {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 1.125;
+}
+.list-title {
+  color: var(--color-dark-purple);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+.skill h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+.skill p {
+  /* font-family: Montserrat; */
+  font-size: 1.1rem;
+  /* font-weight: 700; */
+}
+.skill ul {
+  list-style: none;
+  text-align: center;
+  font-size: 1.1rem;
+}
+.skill li {
+  margin-top: 0.5rem;
+}
+.skill img {
+  width: 48px;
+  height: auto;
+}
+
+.skills-header {
+  width:100%;
+  height:100%;
+  position: absolute;
+  left: 90%;
+  top: 10%;
+  font-family: 'Roboto', sans-serif;
+  font-size: var(--caption-font-size-lg);
+  color: rgb(238, 238, 238);
+}
+
+
 
 /* ============================================== Contact */
 .contact {
@@ -302,11 +405,11 @@ canvas {
 }
 
 :root {
-  --canvas-font-size: 2em;
-  --resume-font-size: 1.5em;
-  --project-heading-font-size: 4em;
-  --caption-font-size-lg: 10em;
-  --caption-font-size-md: 2em;
+  --canvas-font-size: 2rem;
+  --resume-font-size: 1.5rem;
+  --project-heading-font-size: 4rem;
+  --caption-font-size-lg: 10rem;
+  --caption-font-size-md: 2rem;
 
   --canvas-border-width: 20px;
   --canvas-border-inner-radius: 10px;
@@ -318,41 +421,82 @@ canvas {
   --color-orange: #E8A87C;
   --color-purple: #C38D9E;
   --color-aqua: #41B3A3; 
+  --color-dark-purple: #713cc8;
 
   --num-projects: 100vh;
   --hero-height: 100vh;
   --ggs: 1.5;
 }
 
+@media screen and (max-width: 850px) {
+  .skills {
+    height: 350vh;
+  }
+  .skills-header {
+    top: 1%;  
+  }
+  .skills-background {
+    height: 50vh;
+  }
+  .box {
+    z-index: 10;
+    width: 90vw;
+    height: 270vh;
+
+    position: absolute;
+    top: 5%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 5px 5px 0 rgb(233 240 243 / 60%), 0 0 0 1px #e6ecf8;
+    color: #141c3a;
+    display: block;
+  }
+  .border-right {
+    border-right: 0px solid #E6ECF8;
+    border-bottom: 1px solid #E6ECF8;
+  }
+  .skills-content {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 5rem;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+}
+
 @media screen and (max-width: 520px) {
   .canvasContainer {
     width: 100px;
     height: 100px;
-    padding: 0.8em;
+    padding: 0.8rem;
   }
   .canvasContainer:hover .nameContent {
-    margin-top: -6em;
+    margin-top: -6rem;
   }
   .canvasContainer:hover .nameContent p {
     opacity: 0;
     transition: 0.2s ease-out;
   }
   .namePlate {
-    padding-top: 3em;
+    padding-top: 3rem;
   }
   .namePlate p {
-    font-size: 1em;
+    font-size: 1rem;
   }
   .resume {
-    font-size: 1em;
+    font-size: 1rem;
   }
   .h-box {
-    font-size: 1em;
+    font-size: 1rem;
     left: 10%;
     width: 80%;
   }
   .k-box {
-    font-size: 2.5em;
+    font-size: 2.5rem;
     top: 53%;
     right: -105%;
   }
@@ -369,7 +513,7 @@ canvas {
   }
 
   .text-content h1 {
-    font-size: 2em;
+    font-size: 2rem;
   }
 
   .contact-links {
@@ -385,8 +529,8 @@ canvas {
   #mail {
     margin-top: 10px;
   }
-  .contact-header {
-    font-size: 4em;
+  .contact-header, .skills-header{
+    font-size: 4rem;
   }
 
 }

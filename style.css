@@ -50,17 +50,6 @@ body {
   color: rgb(238, 238, 238);
 }
 
-.portfolio {
-  height: 100vh;
-  width: 100vw;
-  background-color: var(--color-teal);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 /* ============== Hero */
 
 .heroTeleport {
@@ -170,6 +159,171 @@ canvas {
   opacity: 0;
 }
 
+
+.gg-chevron-down {
+    color: grey;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 22px;
+    height: 22px;
+    border: 2px solid transparent;
+    border-radius: 100px
+}
+.gg-chevron-down::after {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+    transform: rotate(45deg);
+    left: 4px;
+    top: 2px
+}
+
+/* ==================================================== Portfolio */
+.portfolio {
+  height: var(--num-projects);
+  width: 100vw;
+  /* background-color: var(--color-teal); */
+  position: relative;
+}
+#container-2048 {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#image-content {
+  /* background-color: var(--color-teal); */
+  position: relative;
+}
+#images-2048 {
+  height: 100%;
+  width: 100%;
+}
+#text-2048 {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  /* background-color: blue; */
+}
+
+
+.img-window {
+  width: 70%;
+  height: auto;
+  border-radius: 5px;
+}
+.img-mobile {
+  width: 35%;
+  height: auto;
+  border-radius: 5px;
+}
+.img-tablet {
+  width: 70%;
+  height: auto;
+}
+
+#img-2048-one {
+  position: absolute;
+  top: 10%;
+  left: 2%;
+}
+#img-2048-two {
+  position: absolute;
+  top: 60%;
+  right: 5%;
+}
+#img-2048-three {
+  position: absolute;
+  top: 60%;
+  left: 0;
+}
+
+
+.text-content {
+  /* background-color: var(--color-purple); */
+  padding-top: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.text-content h1 {
+  font-weight: bold;
+  font-size: var(--project-heading-font-size)
+}
+
+/* ============================================== Contact */
+.contact {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.contact-header {
+  width:100%;
+  height:100%;
+  position: absolute;
+  left: -20%;
+  top: 30%;
+  font-family: 'Roboto', sans-serif;
+  font-size: var(--caption-font-size-lg);
+  color: rgb(238, 238, 238);
+}
+
+.contact-links {
+  z-index: 10;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Montserrat', sans-serif;
+  font-size: var(--caption-font-size-md);  
+  color: rgba(0, 0, 0, 0.9);
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px;
+  column-gap: 50px;
+}
+
+.contact-links img {
+  width: 100px;
+  height: 100px;
+}
+#mail {
+  margin-top: 15px;
+}
+
+:root {
+  --canvas-font-size: 2em;
+  --resume-font-size: 1.5em;
+  --project-heading-font-size: 4em;
+  --caption-font-size-lg: 10em;
+  --caption-font-size-md: 2em;
+
+  --canvas-border-width: 20px;
+  --canvas-border-inner-radius: 10px;
+  --canvas-border-outer-radius: 15px;
+
+  --fontFamily: "Segoe UI","Helvetica Neue","Arial",sans-serif;
+  --color-brown: #E27D60;
+  --color-teal: #85DCB0;
+  --color-orange: #E8A87C;
+  --color-purple: #C38D9E;
+  --color-aqua: #41B3A3; 
+
+  --num-projects: 100vh;
+  --hero-height: 100vh;
+  --ggs: 1.5;
+}
+
 @media screen and (max-width: 520px) {
   .canvasContainer {
     width: 100px;
@@ -202,53 +356,38 @@ canvas {
     top: 53%;
     right: -105%;
   }
-
-}
-
-
-
-.gg-chevron-down {
-    color: grey;
-    box-sizing: border-box;
-    position: relative;
-    display: block;
-    transform: scale(var(--ggs,1));
-    width: 22px;
-    height: 22px;
-    border: 2px solid transparent;
-    border-radius: 100px
-}
-.gg-chevron-down::after {
-    content: "";
-    display: block;
-    box-sizing: border-box;
+  #container-2048 {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: auto;
+  }
+  #img-2048-one {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    border-bottom: 2px solid;
-    border-right: 2px solid;
-    transform: rotate(45deg);
-    left: 4px;
-    top: 2px
+    top: -30%;
+    left: 2%;
+  }
+
+  .text-content h1 {
+    font-size: 2em;
+  }
+
+  .contact-links {
+    display: grid;
+    grid-template-columns: 60px 60px 60px 60px;
+    column-gap: 30px;
+  }
+
+  .contact-links img {
+    width: 60px;
+    height: 60px;
+  }
+  #mail {
+    margin-top: 10px;
+  }
+  .contact-header {
+    font-size: 4em;
+  }
+
 }
 
-:root {
-  --canvas-font-size: 2em;
-  --resume-font-size: 1.5em;
-  --caption-font-size-lg: 10em;
-  --caption-font-size-md: 2em;
-
-  --canvas-border-width: 20px;
-  --canvas-border-inner-radius: 10px;
-  --canvas-border-outer-radius: 15px;
-
-  --fontFamily: "Segoe UI","Helvetica Neue","Arial",sans-serif;
-  --color-brown: #E27D60;
-  --color-teal: #85DCB0;
-  --color-orange: #E8A87C;
-  --color-purple: #C38D9E;
-  --color-aqua: #41B3A3; 
-
-  --hero-height: 100vh;
-  --ggs: 1.5;
-}

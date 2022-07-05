@@ -15,7 +15,12 @@
     <title>elliott yoon</title>
 </head>
 <body>
-    <script type="module" src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+    <script type="module" src="components/app.js"></script>
+    
     <section class="hero">
         <div class="canvasContainer">
             <div class="namePlate">
@@ -27,20 +32,47 @@
         </div>
         <a href="#portfolio" class="heroTeleport"><i class="gg-chevron-down"></i></a>
     </section>
+
     <div class="caption" id="caption">
         <div class="h-box" id="one">Mathematics & computer science student @ Northwestern University.</div>
         <div class="k-box" id="two">ABOUT ME</div>
     </div>
-    <div class="portfolio" id="portfolio">
-        <h1>and welcome to my portfolio !</h1>
-        <p> it's a work in progress, so for now go to <a href="https://github.com/elliottyoon"  style="text-decoration: none; color: blue">my github</a></p>
-    </div>
 
+    <section class="portfolio" id="portfolio">
+        <section id="container-2048">
+            <div class="text-content">   
+                <h1>2048Racer</h1>
+                <h2>React.js • Go • Websockets</h3>
+                <h3>Web application that serves as a hub for various spinoffs of the popular game 2048. Allows users to test 2048 AI algorithms or race other users!</h3>
+            </div>
+            <div id="image-content">
+                <div id="images-2048">
+                    <img class="img-window" id="img-2048-one" src="assets/2048-window-win.png" alt="2048 demo">
+                    <img class="img-mobile" id="img-2048-two" src="assets/2048-mobile-lose.png" alt="mobile 2048 demo">
+                    <img class="img-tablet" id="img-2048-three" src="assets/2048-mobile-win.png" alt="mobile 2048 demo">
+                </div>
+            </div>
+        </section>
+    </section>
+    <section class="contact" id="contact">
+        <div class="contact-links">
+            <a href="mailto:elliottyoon@u.northwestern.edu">
+                <img src="assets/social/mail.svg" alt="email" id="mail">
+            </a>
+            <a href="https://www.linkedin.com/in/elliott-yoon/">
+                <img src="assets/social/linkedin.svg" alt="linkedin">
+            </a>
+            <a href="https://github.com/elliottyoon">
+                <img src="assets/social/git.svg" alt="github">
+            </a>
+            <a href="https://vsco.co/elliottyoon/gallery">
+                <img src="assets/social/vsco.svg" alt="vsco">
+            </a>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+        </div>
+        <div class="contact-header" id="contact-header">CONTACT</div>
+    </section>
+    
     <script>
         var controller = new ScrollMagic.Controller();
 
@@ -50,7 +82,29 @@
             triggerElement: "#caption",
             triggerHook: 'onLeave',
             duration: 500
-            }).setPin("#caption").setTween(scrollHorizontal).addTo(controller);
+        }).setPin("#caption").setTween(scrollHorizontal).addTo(controller);
+
+        var scrollVertical = new TimelineMax()
+        .add(TweenMax.to("#img-2048-one", 1, {y:'-90%'}), "first")
+        .add(TweenMax.to("#img-2048-two", 1, {y:'-170%'}), "first")
+        .add(TweenMax.to("#img-2048-three", 1, {y:'-80%'}), "first")
+        var verticalScroll = new ScrollMagic.Scene({
+            triggerElement: "#portfolio",
+            triggerHook: 'onLeave',
+            duration: 800
+        }).setPin("#portfolio").setTween(scrollVertical).addTo(controller);
+
+        var scrollHorizontalContact = new TimelineLite()
+        scrollHorizontalContact.to("#contact-header", 1, {x:'45%'} )
+        var horizontalScroll = new ScrollMagic.Scene({
+            triggerElement: "#contact",
+            triggerHook: 'onLeave',
+            duration: 400
+        }).setPin("#contact").setTween(scrollHorizontalContact).addTo(controller);
     </script>
+
+
+
+
 </body>
 </html>

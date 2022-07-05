@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto:wght@900&display=swap" rel="stylesheet">
     <title>elliott yoon</title>
 </head>
 <body>
@@ -27,10 +28,8 @@
         <a href="#portfolio" class="heroTeleport"><i class="gg-chevron-down"></i></a>
     </section>
     <div class="caption" id="caption">
-        <div class="h-box" id="one">music junkie</div>
-        <div class="i-box" id="three">skateboarder</div>
-        <div class="k-box" id="two">math & cs student</div>
-        <div class="j-box" id="four">dog lover</div>
+        <div class="h-box" id="one">Mathematics & computer science student @ Northwestern University.</div>
+        <div class="k-box" id="two">ABOUT ME</div>
     </div>
     <div class="portfolio" id="portfolio">
         <h1>and welcome to my portfolio !</h1>
@@ -46,14 +45,11 @@
         var controller = new ScrollMagic.Controller();
 
         var scrollHorizontal = new TimelineLite()
-        scrollHorizontal.to("#two", 1, {x:'-95%'} )
-        scrollHorizontal.to("#one", 1, {x:'250%'})
-        scrollHorizontal.to("#four", 1, {x: '-200%'})
-        scrollHorizontal.to("#three", 1, {x:'250%'})
+        scrollHorizontal.to("#two", 1, {x:'50%'} )
         var horizontalScroll = new ScrollMagic.Scene({
             triggerElement: "#caption",
             triggerHook: 'onLeave',
-            duration: 5000
+            duration: 500
             }).setPin("#caption").setTween(scrollHorizontal).addTo(controller);
     </script>
 </body>

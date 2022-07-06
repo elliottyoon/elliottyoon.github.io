@@ -40,17 +40,31 @@
     </div>
 
     <section class="portfolio" id="portfolio">
-        <section id="container-2048">
+        <section id="container-2048" class="project-container">
             <div class="text-content">   
                 <h1>2048Racer</h1>
                 <h2>React.js • Go • Websockets</h3>
                 <h3>Web application that serves as a hub for various spinoffs of the popular game 2048. Allows users to test 2048 AI algorithms or race other users!</h3>
             </div>
-            <div id="image-content">
+            <div class="image-content">
                 <div id="images-2048">
-                    <img class="img-window" id="img-2048-one" src="assets/2048-window-win.png" alt="2048 demo">
-                    <img class="img-mobile" id="img-2048-two" src="assets/2048-mobile-lose.png" alt="mobile 2048 demo">
-                    <img class="img-tablet" id="img-2048-three" src="assets/2048-mobile-win.png" alt="mobile 2048 demo">
+                    <img class="img-window" id="img-2048-one" src="assets/2048-racer/2048-window-win.png" alt="2048 demo">
+                    <img class="img-mobile" id="img-2048-two" src="assets/2048-racer/2048-mobile-lose.png" alt="mobile 2048 demo">
+                    <img class="img-tablet" id="img-2048-three" src="assets/2048-racer/2048-mobile-win.png" alt="mobile 2048 demo">
+                </div>
+            </div>
+        </section>
+        <section id="container-pineapple" class="project-container">
+            <div class="text-content">   
+                <h1>Pineapple Pics</h1>
+                <h2>React.js • Flask • PostgreSQL</h3>
+                <h3>Full-stack accessible Instagram clone built on a MVC design pattern with JWT user authentication, REST API endpoints, and Heroku cloud services.</h3>
+            </div>
+            <div class="image-content">
+                <div id="images-pineapple" class="project-container">
+                    <img class="img-window" id="img-pineapple-one" src="assets/pineapple-pics/pineapple-pics-window.png" alt="pineapple pics window">
+                    <img class="img-tablet" id="img-pineapple-two" src="assets/pineapple-pics/pineapple-pics-tablet.png" alt="pineapple pics tablet">
+                    <img class="img-mobile" id="img-pineapple-three" src="assets/pineapple-pics/pineapple-pics-mobile-login.png" alt="pineapple pics mobile login">
                 </div>
             </div>
         </section>
@@ -61,7 +75,6 @@
             <div class="skills-content">
                 <div class="skill-container border-right">
                     <div class="skill skills-software">
-                        <!-- <img src="assets/skills/code.svg" alt="software engineering image"> -->
                         <h1>Computer Science</h1>
                         <p>I constantly seek to dive deeper into the fascinating realm of computation.</p>
                         <div class="list-group">
@@ -86,7 +99,6 @@
                 </div>
                 <div class="skill-container border-right">
                     <div class="skill skills-web">
-                        <!-- <img src="assets/skills/web.png" alt="web development image"> -->
                         <h1>Web Development</h1>
                         <p>An architect at heart, I love bringing ideas to life in creative ways.</p>
                         <div class="list-group">
@@ -113,7 +125,6 @@
                 </div>
                 <div class="skill-container">
                     <div class="skill skills-math">
-                        <!-- <img src="assets/skills/math.svg" alt="math image"> -->
                         <h1>Mathematics</h1>
                         <p>I enjoy rigorously solving problems in the beautiful world of mathematics.</p>
                         <div class="list-group">
@@ -187,13 +198,23 @@
         .add(TweenMax.to("#img-2048-two", 1, {y:'-170%'}), "first")
         .add(TweenMax.to("#img-2048-three", 1, {y:'-80%'}), "first")
         var verticalScroll2048 = new ScrollMagic.Scene({
-            triggerElement: "#portfolio",
+            triggerElement: "#container-2048",
             triggerHook: 'onLeave',
             duration: 800
-        }).setPin("#portfolio").setTween(scrollVertical2048).addTo(controller);
+        }).setPin("#container-2048").setTween(scrollVertical2048).addTo(controller);
+
+        var scrollVerticalPineapple = new TimelineMax()
+        .add(TweenMax.to("#img-pineapple-one", 1, {y:'-150%'}), "first")
+        .add(TweenMax.to("#img-pineapple-two", 1, {y:'-90%'}), "first")
+        .add(TweenMax.to("#img-pineapple-three", 1, {y:'-140%'}), "first")
+        var verticalScrollPineapple = new ScrollMagic.Scene({
+            triggerElement: "#container-pineapple",
+            triggerHook: 'onLeave',
+            duration: 800
+        }).setPin("#container-pineapple").setTween(scrollVerticalPineapple).addTo(controller);
 
         var scrollHorizontalSkills = new TimelineLite()
-        scrollHorizontalSkills.to("#skills-header", 1, {x:'-75%'} )
+        scrollHorizontalSkills.to("#skills-header", 1, {x:'-80%'} )
         var horizontalScroll = new ScrollMagic.Scene({
             triggerElement: "#skills",
             triggerHook: 'onLeave',
@@ -201,7 +222,7 @@
         }).setPin("#skills").setTween(scrollHorizontalSkills).addTo(controller);
 
         var scrollHorizontalContact = new TimelineLite()
-        scrollHorizontalContact.to("#contact-header", 1, {x:'40%'} )
+        scrollHorizontalContact.to("#contact-header", 1, {x:'-40%'} )
         var horizontalScroll = new ScrollMagic.Scene({
             triggerElement: "#contact",
             triggerHook: 'onLeave',

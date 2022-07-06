@@ -195,20 +195,18 @@ canvas {
 
 /* ==================================================== Portfolio */
 .portfolio {
-  height: var(--num-projects);
+  height: calc(var(--num-projects) * (100vh + 800px));
   width: 100vw;
-  /* background-color: var(--color-teal); */
   position: relative;
 }
-#container-2048 {
+.project-container {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-#image-content {
-  /* background-color: var(--color-teal); */
+.image-content {
   position: relative;
 }
 #images-2048 {
@@ -220,7 +218,6 @@ canvas {
   height: 100%;
   width: 100%;
   text-align: center;
-  /* background-color: blue; */
 }
 
 
@@ -253,6 +250,25 @@ canvas {
   position: absolute;
   top: 60%;
   left: 0;
+}
+
+#img-pineapple-one {
+  position: absolute;
+  top: 20%;
+  right: 2%;
+}
+#img-pineapple-two {
+  position: absolute;
+  top: 60%;
+  right: 5%;
+  /* this table is extra big */
+  width: 50%;
+}
+#img-pineapple-three {
+  position: absolute;
+  top: 60%;
+  left: 0;
+  width: 30%;
 }
 
 
@@ -357,7 +373,7 @@ canvas {
   width:100%;
   height:100%;
   position: absolute;
-  left: 90%;
+  left: 80%;
   top: 10%;
   font-family: 'Roboto', sans-serif;
   font-size: var(--caption-font-size-lg);
@@ -377,7 +393,8 @@ canvas {
   width:100%;
   height:100%;
   position: absolute;
-  left: -20%;
+  left: 50%;
+  transform: translateX(-50%);
   top: 30%;
   font-family: 'Roboto', sans-serif;
   font-size: var(--caption-font-size-lg);
@@ -425,7 +442,7 @@ canvas {
   --color-aqua: #41B3A3; 
   --color-dark-purple: #713cc8;
 
-  --num-projects: 100vh;
+  --num-projects: 2;
   --hero-height: 100vh;
   --ggs: 1.5;
 }
@@ -502,7 +519,7 @@ canvas {
     top: 53%;
     right: -105%;
   }
-  #container-2048 {
+  .project-container {
     height: 100vh;
     width: 100vw;
     display: grid;

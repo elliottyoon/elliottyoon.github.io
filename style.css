@@ -70,7 +70,7 @@ body {
 }
 
 .heroTeleport:hover .gg-chevron-down, .gg-chevron-up:hover {
-  color: var(--color-teal);
+  color: var(--color-dark-purple);
   transform: scale(1.75);
 }
 
@@ -111,7 +111,7 @@ canvas {
   transform: translate(50%, -50%);
 
   padding: var(--canvas-border-width);
-  color: var(--color-aqua);
+  color: var(--color-dark-purple);
   box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25),0 8px 16px -8px rgba(0,0,0,0.3); 
 }
 .canvasContainer:hover .nameContent {

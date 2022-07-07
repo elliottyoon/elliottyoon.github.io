@@ -271,9 +271,41 @@ canvas {
   width: 30%;
 }
 
+#img-ds4a-one {
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  z-index: 2;
+  width: 50%;
+  box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25),0 8px 16px -8px rgba(0,0,0,0.3); 
+
+}
+#img-ds4a-two {
+  position: absolute;
+  top: 80%;
+  right: 25%;
+  z-index: 5;
+  width: 45%;
+  box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25),0 8px 16px -8px rgba(0,0,0,0.3); 
+
+}
+#img-ds4a-three {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  z-index: 1;
+}
+#img-ds4a-four {
+  position: absolute;
+  top: 60%;
+  right: 15%;
+  width: 30%;
+  z-index: 4;
+
+}
+
 
 .text-content {
-  /* background-color: var(--color-purple); */
   padding-top: 30%;
   margin-left: auto;
   margin-right: auto;
@@ -284,12 +316,18 @@ canvas {
   font-weight: bold;
   font-size: var(--project-heading-font-size)
 }
+.text-content h1 a {
+  text-decoration: none;
+}
+.text-content h1 a:hover {
+  color: var(--color-dark-purple);
+  transition: .2s ease-out;
+}
 /* ============================================== Skills */
 .skills {
   height: 150vh;
   width: 100vw;
   position: relative;
-  /* background-color: lightblue; */
 }
 .skills * {
   text-align: center;
@@ -442,7 +480,7 @@ canvas {
   --color-aqua: #41B3A3; 
   --color-dark-purple: #713cc8;
 
-  --num-projects: 2;
+  --num-projects: 3;
   --hero-height: 100vh;
   --ggs: 1.5;
 }
@@ -529,6 +567,9 @@ canvas {
     position: absolute;
     top: -30%;
     left: 2%;
+  }
+  .portfolio {
+    height: calc(var(--num-projects) * (100vh + 800px) + 50vh);
   }
 
   .text-content h1 {

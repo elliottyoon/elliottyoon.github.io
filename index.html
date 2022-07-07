@@ -42,7 +42,7 @@
     <section class="portfolio" id="portfolio">
         <section id="container-2048" class="project-container">
             <div class="text-content">   
-                <h1>2048Racer</h1>
+                <h1><a href="https://github.com/elliottyoon/2048Racer">2048Racer</a></h1>
                 <h2>React.js • Go • Websockets</h3>
                 <h3>Web application that serves as a hub for various spinoffs of the popular game 2048. Allows users to test 2048 AI algorithms or race other users!</h3>
             </div>
@@ -56,7 +56,7 @@
         </section>
         <section id="container-pineapple" class="project-container">
             <div class="text-content">   
-                <h1>Pineapple Pics</h1>
+                <h1><a href="https://github.com/elliottyoon/Pineapple-Pics">Pineapple Pics</a></h1>
                 <h2>React.js • Flask • PostgreSQL</h3>
                 <h3>Full-stack accessible Instagram clone built on a MVC design pattern with JWT user authentication, REST API endpoints, and Heroku cloud services.</h3>
             </div>
@@ -65,6 +65,23 @@
                     <img class="img-window" id="img-pineapple-one" src="assets/pineapple-pics/pineapple-pics-window.png" alt="pineapple pics window">
                     <img class="img-tablet" id="img-pineapple-two" src="assets/pineapple-pics/pineapple-pics-tablet.png" alt="pineapple pics tablet">
                     <img class="img-mobile" id="img-pineapple-three" src="assets/pineapple-pics/pineapple-pics-mobile-login.png" alt="pineapple pics mobile login">
+                </div>
+            </div>
+        </section>
+        <section id="container-ds4a" class="project-container">
+            <div class="text-content">   
+                <h1><a href="https://github.com/elliottyoon/DS4A">DS4A</a></h1>
+                <h2>Python • SQL • Tableau</h3>
+                <h3>Statistical analysis (correlation analysis, chi-squared tests, and regression models) on extracted time
+series aggregate data to analyze relationship between Amazon deforestation and socioeconomic health of Brazilian
+states</h3>
+            </div>
+            <div class="image-content">
+                <div id="images-ds4a" class="project-container">
+                    <img class="img-window" id="img-ds4a-one" src="assets/DS4A/DS4A-heatmap-large.png" alt="ds4a heatmap large">
+                    <img class="img-window" id="img-ds4a-two" src="assets/DS4A/DS4A-geoplot.png" alt="ds4a geoplot">
+                    <img class="img-window" id="img-ds4a-three" src="assets/DS4A/DS4A-regression.png" alt="ds4a regression">
+                    <img class="img-window" id="img-ds4a-four" src="assets/DS4A/DS4A-heatmap-small.png" alt="ds4a heatmap small">
                 </div>
             </div>
         </section>
@@ -79,7 +96,7 @@
                         <p>I constantly seek to dive deeper into the fascinating realm of computation.</p>
                         <div class="list-group">
                             <p class="list-title">Some of my favorite projects</p>
-                            <p>Buffer overflow attacks <i>(x86 Assembly, C)</i>, neural network from scratch <i>(Python)</i>, Racket interpreter <i>(Lisp)</i></p>
+                            <p>Buffer overflow attack <i>(x86 Assembly, C)</i>, neural network from scratch <i>(Python)</i>, Racket interpreter <i>(Lisp)</i></p>
                         </div>
                         <div class="list-group">
                             <p class="list-title">Languages</p>
@@ -212,6 +229,17 @@
             triggerHook: 'onLeave',
             duration: 800
         }).setPin("#container-pineapple").setTween(scrollVerticalPineapple).addTo(controller);
+
+        var scrollVerticalDS4A = new TimelineMax()
+        .add(TweenMax.to("#img-ds4a-one", 1, {y:'-150%'}), "first")
+        .add(TweenMax.to("#img-ds4a-two", 1, {y:'-200%'}), "first")
+        .add(TweenMax.to("#img-ds4a-three", 1, {y:'-50%'}), "first")
+        .add(TweenMax.to("#img-ds4a-four", 1, {y:'-150%'}), "first")
+        var verticalScrollPineapple = new ScrollMagic.Scene({
+            triggerElement: "#container-ds4a",
+            triggerHook: 'onLeave',
+            duration: 800
+        }).setPin("#container-ds4a").setTween(scrollVerticalDS4A).addTo(controller);
 
         var scrollHorizontalSkills = new TimelineLite()
         scrollHorizontalSkills.to("#skills-header", 1, {x:'-80%'} )

@@ -485,7 +485,7 @@ canvas {
   --ggs: 1.5;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 850px), screen and (max-height: 730px) {
   .skills {
     height: 350vh;
   }
@@ -498,7 +498,7 @@ canvas {
   .box {
     z-index: 10;
     width: 90vw;
-    height: 270vh;
+    height: 350vh;
 
     position: absolute;
     top: 5%;
@@ -518,9 +518,9 @@ canvas {
     border-bottom: 1px solid #E6ECF8;
   }
   .skills-content {
+    height: 100%;
     display: grid;
     grid-template-columns: auto;
-    gap: 5rem;
     grid-template-rows: 1fr 1fr 1fr;
   }
 }
@@ -567,6 +567,14 @@ canvas {
     position: absolute;
     top: -30%;
     left: 2%;
+  }
+
+  .skills-header {
+    width:100%;
+    height:100%;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
   .portfolio {
     height: calc(var(--num-projects) * (100vh + 800px) + 50vh);

@@ -86,90 +86,6 @@ states</h3>
             </div>
         </section>
     </section>
-    <section class="skills" id="skills"> 
-        <div class="skills-background"></div>
-        <div class="box">
-            <div class="skills-content">
-                <div class="skill-container border-right">
-                    <div class="skill skills-software">
-                        <h1>Computer Science</h1>
-                        <p>I constantly seek to dive deeper into the fascinating realm of computation.</p>
-                        <div class="list-group">
-                            <p class="list-title">Some of my favorite projects</p>
-                            <p>Buffer overflow attack <i>(x86 Assembly, C)</i>, neural network from scratch <i>(Python)</i>, Racket interpreter <i>(Lisp)</i></p>
-                        </div>
-                        <div class="list-group">
-                            <p class="list-title">Languages</p>
-                            <ul>
-                                <li>C</li>
-                                <li>C++</li>
-                                <li>Go</li>
-                                <li>Java</li>
-                                <li>Javascript</li>
-                                <li>Python</li>
-                                <li>Racket</li>
-                                <li>SQL</li>
-                                <li>x86 Assembly</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-container border-right">
-                    <div class="skill skills-web">
-                        <h1>Web Development</h1>
-                        <p>An architect at heart, I love bringing ideas to life in creative ways.</p>
-                        <div class="list-group">
-                            <p class="list-title">My must-haves</p>
-                            <p>HTML5, CSS3, Javascript ES6, VSCode, Github, Chrome Developer Tools, and paper & pencil.</p>
-                        </div>
-                        <div class="list-group">
-                            <p class="list-title">Technologies</p>
-                            <ul>
-                                <li>Docker</li>
-                                <li>DigitalOcean</li>
-                                <li>Flask</li>
-                                <li>Heroku</li>
-                                <li>JWT</li>
-                                <li>NginX</li>
-                                <li>Nuxt.js</li>
-                                <li>PostgreSQL</li>
-                                <li>React.js</li>
-                                <li>Vue.js</li>
-                                <li>Websockets</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-container">
-                    <div class="skill skills-math">
-                        <h1>Mathematics</h1>
-                        <p>I enjoy rigorously solving problems in the beautiful world of mathematics.</p>
-                        <div class="list-group">
-                            <p class="list-title">Current research</p>
-                            <p>Exploring the connections between classifications of semisimple Lie algebras through Dynkin diagrams.</p>
-                        </div>
-                        <div class="list-group">
-                            <p class="list-title">Branches</p>
-                            <ul>
-                                <li>Abstract Algebra</li>
-                                <li>Differential Equations</li>
-                                <li>Linear Algebra</li>
-                                <li>Multivariable Calculus</li>
-                                <li>Number Theory</li>
-                                <li>Point-set Topology</li>
-                                <li>Probability</li>
-                                <li>Real Analysis</li>
-                                <li>Statistics</li>
-                                <li>Trigonometry</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="skills-header" id="skills-header">SKILLS</div>
-    </section>
 
     <section class="contact" id="contact">
         <div class="contact-links">
@@ -240,14 +156,6 @@ states</h3>
             triggerHook: 'onLeave',
             duration: 800
         }).setPin("#container-ds4a").setTween(scrollVerticalDS4A).addTo(controller);
-
-        var scrollHorizontalSkills = new TimelineLite()
-        scrollHorizontalSkills.to("#skills-header", 1, {x:'-80%'} )
-        var horizontalScroll = new ScrollMagic.Scene({
-            triggerElement: "#skills",
-            triggerHook: 'onLeave',
-            duration: 400
-        }).setPin("#skills").setTween(scrollHorizontalSkills).addTo(controller);
 
         var scrollHorizontalContact = new TimelineLite()
         scrollHorizontalContact.to("#contact-header", 1, {x:'-40%'} )

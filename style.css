@@ -285,11 +285,9 @@ canvas {
     border-right: 0px solid #E6ECF8;
     border-bottom: 1px solid #E6ECF8;
   }
-  .skills-content {
-    height: 100%;
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 1fr 1fr 1fr;
+  .contact-links {
+    display: flex;
+    flex-wrap: nowrap;
   }
 }
 
@@ -298,6 +296,9 @@ canvas {
     width: 100px;
     height: 100px;
     padding: 0.8rem;
+  }
+  .canvasContainer .nameContent {
+    margin-top: -1rem;
   }
   .canvasContainer:hover .nameContent {
     margin-top: -6rem;
@@ -327,20 +328,10 @@ canvas {
   }
 
   .contact-links {
-    display: grid;
-    grid-template-columns: 40px 40px 40px 40px 40px;
-    column-gap: 20px;
-  }
+    font-size: 1rem;
+    display: flex;
+    flex-wrap: nowrap;
 
-  .contact-links img {
-    width: 40px;
-    height: 40px;
-  }
-  #mail {
-    margin-top: 10px;
-  }
-  .contact-header, .skills-header{
-    font-size: 4rem;
   }
 
 }

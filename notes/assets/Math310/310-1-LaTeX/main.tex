@@ -1,0 +1,393 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{float}
+\DeclareMathOperator{\Var}{\textrm{Var}}
+\DeclareMathOperator{\Cov}{\textrm{Cov}}
+
+
+\begin{document}
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+% Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE Northwestern University}\\[1.5cm] % Name of your university/college
+\includegraphics[scale=0.4]{IMG_0148.JPG}\\[2cm] % Include a department/university logo - this will require the graphicx package
+\textsc{\Large Probability}\\[0.5cm] % Major heading such as course name
+\textsc{\large MATH 310-1}\\[0.5cm] % Minor heading such as course title
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge \bfseries summary or som}\\[0.4cm] % Title of your document
+\HRule \\[1.5cm]
+ 
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+Elliott \textsc{Yoon}\\ % Your name
+\end{flushleft}
+
+\end{minipage}\\[2cm]
+
+% If you don't want a supervisor, uncomment the two lines below and remove the section above
+%\Large \emph{Author:}\\
+%John \textsc{Smith}\\[3cm] % Your name
+
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+
+{\large \today}\\[2cm] % Date, change the \today to a set date if you want to be precise
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+\section{Combinatorial Analysis}
+
+If an experiment consists of two events $A$ and $B$, there are $n$ outcomes in event $A$ and $m$ outcomes in event $B$, then there are $nm$ possible outcomes of the experiment. This is called the \vocab{multiplication principle}.
+
+There are $n!=n(n-1)\dotsi3\cdot2\cdot1$ possible linear orderings of $n$ items, where $0!=1$. The number of ways to choose a subgroup of size $i$ from a set of size $n$ (called the \vocab{binomial coefficient} is
+\[{n\choose i}=\frac{n!}{(n-i)!i!}\]when $0\leq i\leq n$, and is $0$ otherwise. 
+
+For $n_{1},\dotsc,n_{r}$ summing to $n$, the number of divisions of $n$ items into $r$ distinct disjoint subgroups of sizes $n_{1},n_{2},\dotsc,n_{r}$ is
+\[{n\choose n_{1},n_{2},\dotsc,n_{r}}=\frac{n!}{n_{1}!n_{2}!\dotsi n_{r}!}.\]
+
+\section{Axioms of Probability}
+For each event $A$ of the sample space $S$, we suppose that the probability of $A$, $P(A)$ is defined such that 
+\begin{enumerate}
+    \item $0\leq P(A)\leq 1$,
+    \item $P(S)=1$,
+    \item For mutually exclusive events $A_{i},i\geq 1$,
+    \[P\left(\bigcup_{i=1}^{\infty}A_{i}\right)=\sum_{i=1}^{\infty}P(A_{i}).\]
+\end{enumerate}
+\begin{theorem}[Inclusion-exclusion]
+    For events $A,B$,
+    \[P(A\cup B)=P(A)+P(B)-P(AB)\]
+    which can be generalized to give
+    \[P\left(\bigcup_{i=1}^{n}A_{i}\right)=\sum_{i=1}^{n}P(A_{i})-\underset{i<j}{\sum\sum}P(A_{i}A_{j})+\underset{i<j<k}{\sum\sum\sum}P(A_{i}A_{j}A_{k}+\dotsi+(-1)^{n+1}P(A_{1}\dotsi A_{n}).\]
+\end{theorem}
+
+
+\section{Conditional Probability and Independence}
+\begin{definition}
+For events $E$ and $F$, the conditional probability of $E$ given $F$ has occurred is 
+\[P(E|F)=\frac{P(EF)}{P(F)}.\]
+\end{definition}
+\begin{theorem}[Multiplication Rule]
+For events $E_{1},\dotsc,E_{n}$:
+    \[P(E_{1},E_{2}\dotsi E_{n})=P(E_{1})P(E_{2}|E_{1})\dotsi P(E_{n}|E_{1}\dotsi E_{n-1}).\]
+\end{theorem}
+\begin{remark}
+    An important identity is
+    \[P(E)=P(E|F)P(F)+P(E|F^{c})P(F^{c}),\]
+    which can be used to compute $P(E)$ by conditioning on whether $F$ occurs.
+\end{remark}
+\begin{theorem}[Bayes's Formula]
+    If $F_{i},i=1,\dotsc,n$ are mutually exclusive events whose union is the entire sample space, then
+    \[P(F_{j}|E)=\frac{P(E|f_{j})P(F_{j})}{\sum_{i=1}^{n}P(E|F_{i})P(F_{i})}.\]
+\end{theorem}
+\begin{definition}
+    We say $E$ and $F$ are \vocab{independent} if $P(EF)=P(E)P(F)$.
+\end{definition}
+\begin{remark}
+    This is equivalent to $P(E|F)=P(E)$ and $P(F|E)=P(F)$.
+\end{remark}
+The events $E_{1},\dotsc,E_{n}$ are independent if, for any subset $E_{i_{1}},\dotsc,E_{i_{r}}$ of them,
+\[P(E_{i_{1}},\dotsc,E_{i_{r}})=P(E_{i_{1}}\dotsi P(E_{i_{r}}).\]
+\section{Random Variables}
+\begin{definition}
+    A real-valued function defined on the outcome of a probability experiment is called a \vocab{random variable}. 
+    
+    If $X$ is a random variable, the \vocab{distribution function} $F(x)$ of $X$ is defined 
+    \[F(x)=P\{X\leq x\}.\]
+    A random variable whose set of possible values is either finite or countably infinite is called \vocab{discrete}, with \vocab{probability mass function}
+    \[p(x)=P\{X=x\}.\]The \vocab{expected value} (or \textit{mean}) of $X$ is 
+    \[E[X]=\sum_{x:p(x)>0}xp(x).\]
+
+\end{definition}
+\begin{theorem}
+    \[E[g(X)]=\sum_{x:p(x)>0}g(x)p(x).\]
+\end{theorem}
+\begin{definition}
+    The \vocab{variance} of a random variable $X$ is defined by 
+    \[\Var(X)=E[(X-E[X]^{2}]=E[X^{2}]-(E[X])^{2}.\]
+\end{definition}
+\subsection{Important Probability Distributions}
+
+\begin{definition}
+    The \vocab{binomial random variable} can be interpreted as being the number of successes that occur when $n$ independent trials, each of which has probability of success $p$, are performed.
+    It has probability mass function 
+    \[p(i)={n\choose i}p^{i}(1-p)^{n-i}\quad i=0,\dotsc,n \]and mean and variance
+    \[E[X]=np\quad \Var(X)=np(1-p).\]
+\end{definition}
+\begin{remark}
+    If $X$ is a binomial random variable, 
+    \[E[X^{2}]=np[(n-1)p+1].\]
+\end{remark}
+\begin{definition}
+    The \vocab{Poissson random variable} with parameter $\lambda$ can be used to approximate binomial random variables, where $\lambda=np$. It has probability mass function (giving probability $p(X)$ of $X$ successes):
+    \[p(x)=\frac{e^{-\lambda}\lambda^{x}}{x!}\quad x\geq 0\]and mean and variance
+    \[E[X]=\Var(X)=\lambda.\]
+\end{definition}
+\begin{remark}
+    If $X$ is a Poisson random variable, \[E[X^{2}]=\lambda(\lambda+1).\]
+\end{remark}
+\begin{definition}
+    The \vocab{geometric random variable} represents the number of independent trials of probability $p$ it takes for the first success. Its probability mass function is 
+    \[p(i)=p(1-p)^{i-1}\quad i=1,2,\dotsc\]and has mean and variance
+    \[E[X]=\frac{1}{p}\quad \Var(X)=\frac{1-p}{p^{2}}.\]
+\end{definition}
+\begin{remark}
+    If $X$ is a geometric random variable,
+    \[E[X^{2}]=\frac{q+1}{p^{2}}.\]
+\end{remark}
+
+\subsection{Alone. He's just like me!}
+\begin{theorem}[Mean of the sum is the sum of the means]
+    \[E\left[\sum_{i=1}^{n}X_{i}\right]=\sum_{i=1}^{n}E[X_{i}].\]
+\end{theorem}
+\section{Continuous Random Variables}
+\begin{definition}
+    A random variable $X$ is \emph{continuous} if there is a nonnegative function $f$, called the \vocab{probability density function} of $X$, such that for any set $B$:
+    \[P\{X\in B)\}=\int_{B}f(x)\,dx.\]
+    If $X$ is continuous, its distribution function $F$ is differentiable and 
+    \[\frac{d}{dx}F(x)=f(x).\]
+    The expected value of a continuous random variable $X$ is defined by 
+    \[E[X]=\int_{-\infty}^{\infty}xf(x)\,dx.\]
+\end{definition}
+\begin{theorem}
+    For any function $g$,
+    \[E[g(x)]=\int_{-\infty}^{\infty}g(x)f(x)\,dx.\]
+\end{theorem}
+\begin{remark}
+    Just like in the discrete case, the variance of $X$ is defined to be
+    \[\Var(X)=E[(X-E[X])^{2}]=E[X^{2}]-(E[X])^{2}.\]
+\end{remark}
+
+\subsection{Important Probability Distributions}
+\begin{definition}
+    A random variable $X$ is said to be \vocab{uniform} over the interval $(a,b)$ if its probability density function is given by 
+    \[f(x)=\begin{cases}
+        \frac{1}{b-a} & a\leq x \leq b\\
+        0& \textrm{otherwise}.
+    \end{cases}\]
+    It has mean and variance
+    \[E[X]=\frac{a+b}{2}\quad \Var(X)=\frac{(b-a)^{2}}{12}.\]
+\end{definition}
+\begin{definition}
+    A random variable $X$ is said to be \vocab{normal} with parameters $\mu, \sigma^{2}$ if its probability density function is given by 
+    \[f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-(x-\mu)^{2}/2\sigma^{2}}\quad-\infty<x<\infty.\]It has mean and variance 
+    \[E[X]=\mu\quad\Var(X)=\sigma^{2}.\]If $X$ is normal with mean $\mu$ and variance $\sigma^{2}$, then $Z$, defined by 
+    \[Z=\frac{X-\mu}{\sigma}\]is normal with mean $0$ and variance $1$. 
+\end{definition}
+\begin{remark}
+    When $n$ is large, the probability distribution function of a binomial random variable with parameters $n$ and $p$ can be approximated by that of a normal variable with mean $\mu=np$ and variance $\sigma^{2}=np(1-p)$.
+\end{remark}
+
+\begin{definition}
+    An \vocab{exponential random variable} with parameter $\lambda$ has probability density function of the form 
+    \[f(x)=\begin{cases}
+        \lambda e^{-\lambda x} & x\geq 0\\
+        0 & \textrm{otherwise}
+    \end{cases}\]with mean and variance
+    \[E[X]=\frac{1}{\lambda}\quad \Var(X)=\frac{1}{\lambda^{2}}.\]
+    An exponential random variable $X$ intuitively represents the time it takes for the first success in a collection of independent events. See \href{https://math.stackexchange.com/questions/1088111/what-is-the-intuition-behind-the-exponential-distribution}{this stack exchange post} for a more solid intuition.
+\end{definition}
+\begin{remark}
+    The exponential random variable is the \textit{only} random variable that is \vocab{memoryless}, meaning that for $s,t>0$
+    \[P\{X>s+t|X>t\}=P\{X>s\}.\]If $X$ represents the life of an item, then the memoryless property states that, for any $t$, the remaining life of a $t$-year-old item has the same probability distribution as the life a new item. 
+\end{remark}
+\begin{definition}
+    Let $X$ be a nonnegative continuous random variable with distribution function $F$ and density function $f$. The function 
+    \[\lambda(t)=\frac{f(t)}{1-F(t)}\quad t\geq0\]is called the \vocab{hazard rate} (or \textit{failure rate}) of $F$. Notice that if $X$ is exponential with parameter $\lambda$, then $\lambda(t)=\lambda$. In fact, the exponential distribution uniquely has constant hazard rate.
+\end{definition}
+
+\begin{definition}
+    A random variable is said to have \vocab{gamma} distribution with parameters $\alpha$ and $\lambda$ if its probability density function is equal to 
+    \[f(x)=\frac{\lambda e^{-\lambda x}(\lambda x)^{\alpha-1}}{\Gamma(\alpha)}\quad x\geq 0\] and 0 otherwise. Note that the gamma function $\Gamma(\alpha)$ is defined by
+    \[\Gamma(\alpha)=\int_{0}^{\infty}e^{-x}x^{\alpha-1}\,dx.\]The mean and variance of a gamma random variable are 
+    \[E[X]=\frac{\alpha}{\lambda}\quad \Var(X)=\frac{\alpha}{\lambda^{2}}.\]
+    Whereas exponential random variables represent the time it takes for the first occurrence of a given event, the gamma random variable represents the time it takes for the $\alpha$-th occurrence.
+\end{definition}
+\newpage
+\section{Jointly Distributed Random Variables}
+\begin{definition}
+    The \vocab{joint cumulative probability distribution function} of the pair of random variables $X$ and $Y$ is defined by
+    \[F(x,y)=P\{X\leq x,Y\leq y\}\quad-\infty<x,y<\infty.\]
+    To find the individual probability distribution functions of $X$ and $Y$, use 
+    \[F_{X}(x)=\lim_{y\rightarrow\infty}F(x,y)\quad F_{Y}(y)=\lim_{x\rightarrow\infty}F(x,y).\]
+    \begin{itemize}
+        \ii If $X,Y$ are both discrete random variables, then their \vocab{joint probability mass function} is defined by
+        \[p(i,j)=P\{X=i,Y=j\}.\]
+        The individual mass functions are 
+        \[P\{X=i\}=\sum_{j}p(i,j)\quad P\{Y=j\}=\sum_{i}p(i,j).\]
+        \ii The random variables $X,Y$ are \emph{jointly continuous} if there is a function $f(x,y)$, called the \vocab{joint probability density function} such that for any two dimensional set $C$,
+        \[P\{(X,Y)\in C\}=\iint_{C}f(x,y)\,dx\,dy.\]
+    \end{itemize}
+\end{definition}
+\begin{theorem}[Marginal Density Functions]
+    If $X,Y$ are jointly continuous, they are individually continuous with (marginal) density functions
+    \[f_{X}(x)=\int_{-\infty}^{\infty}f(x,y)\,dy\quad f_{Y}(y)=\int_{-\infty}^{\infty}f(x,y)\,dx.\]
+\end{theorem}
+\begin{theorem}[Independence of Jointly Continuous Random Variables]
+    Random variables $X$ and $Y$ are \emph{independent} if for all sets $A,B$,
+    \[P\{X\in A,Y\in B\}=P\{X\in A\}P\{Y\in B\}\]
+    This holds generally for $X_{1},\dotsc, X_{n}$.
+\end{theorem}
+\begin{remark}
+    IF the joint distribution function (or joint probability mass function in the discrete case) factors into a part depending only on $x$ and a part depending only on $y$, then $X$ and $Y$ are independent
+\end{remark}
+\begin{theorem}[Convolutions]
+    If $X,Y$ are independent continuous random variables, then the distribution function of their sum can be obtained as follows:
+    \[F_{X+Y}(a)=\int_{-\infty}^{\infty}F_{X}(a-y)f_{Y}(y)\,dy.\]
+\end{theorem}
+\begin{remark}
+    This follows from \[F_{X+Y}(a)=\iint_{X+Y\leq a}f(x,y)\,dx\,dy=\int_{-\infty}^{\infty}\int_{-\infty}^{a-y}f_{X}(x)f_{Y}(y)\,dx\,dy=\int_{-\infty}^{\infty}F_{X}(a-y)f_{Y}(y)\,dy.\]
+\end{remark}
+
+\subsection{Sums of Specific Distribution}
+\begin{theorem}
+If $X_{i},i=1,\dotsc,n$ are independent..
+    \begin{enumerate}
+        \ii normal random variables with respective parameters $\mu_{i}$ and $\sigma^{2}_{i}$, then $\sum_{i=1}^{n}X_{i}$ is normal with parameters $\sum_{i=1}^{n}\mu_{i}$ and $\sum_{i=1}^{n}\sigma^{2}_{i}$.
+        \ii Poisson random variables with respective parameter $\lambda_{i}$, then $\sum_{i=1}^{n}S_{i}$ is Poisson with parameter $\sum_{i=1}^{n}\lambda_{i}$.
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Conditional Probability}
+\begin{definition}
+    If $X,Y$ are discrete random variables, then the \vocab{conditional probability mass function} of $X$ given that $Y=y$ is defined by
+    \[P\{X=x|Y=y\}=\frac{p(x,y)}{p_{Y}(y)}\]where $p$ is their joint probability mass function. 
+\end{definition}
+    
+\begin{definition}
+    If $X,Y$ are independent continuous random variables, then the \vocab{conditional probability density function} of $X$ given that $Y=y$ is defined by 
+    \[f_{X|Y}(x|y)=\frac{f(x,y)}{f_{Y}(y)}.\]
+\end{definition}
+
+\section{Properties of Expectation}
+If $X$ and $Y$ have a joint probability mass function $p(x,y)$, then 
+\[E[g(X,Y)]=\sum_{y}\sum_{x}g(x,y)p(x,y)\]whereas if they have joint density function $f(x,y)$, then
+\[E[g(X,Y)]=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}g(x,y)f(x,y)\,dx\,dy.\]
+\begin{corollary}
+    It follows immediately then that
+    \[E[X+Y]=E[X]+E[Y]\]
+    and, more generally, 
+    \[E\left[\sum_{i=1}^{n}X_{i}\right]=\sum_{i=1}^{n}E[X_{i}].\]
+\end{corollary}
+\begin{definition}
+    The \vocab{covariance} between random variables $X$ and $Y$ is
+    \[\Cov(X,Y)=E[(X-E[X])(Y-E[Y])]=E[XY]-E[X]E[Y].\]
+\end{definition}
+\begin{remark}
+    A useful identity is 
+    \[\Cov\left(\sum_{i=1}^{n}X_{i},\sum_{j=1}^{m}Y_{j}\right)=\sum_{i=1}^{n}\sum_{j=1}^{m}\Cov(X_{i},Y_{j})\]
+\end{remark}
+\begin{definition}
+    The \vocab{correlation} between $X$ and $Y$, denoted $\rho(X,Y)$ is defined by 
+    \[\rho(X,Y)=\frac{\Cov(X,Y)}{\sqrt{\Var(X)\Var(Y)}}.\]
+\end{definition}
+\subsection{Conditional Expectation}
+\begin{definition}    
+    \begin{itemize}
+        \ii If $X,Y$ are jointly discrete random variables, then the \vocab{conditional expected value} of $X$, given that $Y=y$, is 
+        \[E[X|Y=y]=\sum_{x}xP\{X=x|Y=y\}.\]
+        \ii If $X,Y$ are jointly continuous random variables, then 
+        \[E[X|Y=y]=\int_{-\infty}^{\infty}xf_{X|Y}(x|y)\,dx\]where $f_{X|Y}(x|y)=\frac{f(x,y)}{f_{Y}(y)}$ is the conditional probability of $X$ given that $Y=y$. 
+    \end{itemize}
+\end{definition}
+\begin{remark}
+    Conditional expectations satisfy all the properties of ordinary expectations.
+\end{remark}
+\begin{theorem}
+    Let $E[X|Y]$ denote the function of $Y$ whose value at $Y=y$ is $E[X|Y=y]$. Then 
+    \[E[X]=E[E[X|Y]].\]
+    \begin{enumerate}
+        \ii For discrete random variables, 
+        \[E[X]=\sum_{y}E[X|Y=y]P\{Y=y\}\]
+        \ii For continuous random variables,
+        \[E[X]=\int_{-\infty}^{\infty}E[X|Y=y]f_{Y}(y)\,dy\]
+    \end{enumerate}
+    We can use these equations to obtain $E[X]$ by first "conditioning" on the value of some other random variable $Y$. Also, for any event $A$, $P(A)=E[I_{A}]$, where $I_{A}$ is 1 if $A$ occurs and $0$ otherwise, so we can use these equations to compute probabilities.
+\end{theorem}
+\begin{definition}
+    The conditional variance of $X$, given $Y=y$, is defined 
+    \[\Var(X|Y=y)=E[(X-E[X|Y=y])^{2}|Y=y].\]
+    Letting $\Var(X|Y)$ be the function of $Y$ whose value at $Y=y$ is $\Var(X|Y=y),$
+    \[\Var(X)=E[\Var(X|Y)]+\Var(E[X|Y]).\]
+\end{definition}
+\subsection{Moment Generating Functions}
+\begin{definition}
+    The \vocab{moment generating function} of $X$ is defined as 
+    \[M(t)=E[e^{tX}].\]The moments of $X$, i.e. $E[X],E[X^{2}],\dotsc,E[X^{n}]$, are obtained by successively differentiating $M(t)$ and then evaluating the resulting quantity at $t=0$. Specifically, we have 
+    \[E[X^{n}]=\frac{d^{n}}{dt^{n}}M(t)\bigg\rvert_{t=0}\quad n=1,2,\dotsc\]
+\end{definition}
+\begin{remark}
+    Two useful results arise from moment generating functions:
+    \begin{enumerate}
+        \item The MGF \textit{uniquely} determines the distribution function of the random variable, and
+        \item The MGF of the sum of independent random variables is equal to the product of \textit{their} moment generating functions.
+    \end{enumerate}
+\end{remark}
+\section{Limit Theorems}
+\subsection{Probability Bounds}
+Using the following two theorems, we can derive bounds on probabilities when only the mean (or both the mean and the variance) are known.
+\begin{theorem}[Markov's Inequality]
+    If $X$ is a random variable that takes only non-negative values, then for any $a>0$,
+    \[P\{X\geq a\}\leq \frac{E[X]}{a}.\]
+\end{theorem}
+\begin{theorem}[Chebyshev's Inequality]
+    If $X$ is a random variable with finite mean $\mu$ and variance $\sigma^{2}$, then, for any value $k>0$,
+    \[P\{|X-\mu|\geq k\}\leq \frac{\sigma^{2}}{k^{2}}.\]
+\end{theorem}
+
+
+\subsection{The Big Kahunas}
+\begin{theorem}[The Weak Law of Large Numbers]
+    Let $X_{1},X_{2},\dotsc,$ be a sequence of independent and identically distributed random variables, each having finite mean $E[X_{i}]=\mu$. Then, for any $\epsilon>0$,
+    \[P\left\{\left|\frac{X_{1}+\dotsi+X_{n}}{n}-\mu\right|\geq \epsilon\right\}\rightarrow 0\quad\textrm{as }n\rightarrow\infty.\]
+\end{theorem}
+\begin{remark}
+    This requires only that the random variables in the sequence have a finite mean $\mu$. It states that, with probability 1, the average of the first $n$ of them will converge to $\mu$ as $n$ goes to infinity. 
+
+    This implies that if $A$ is any specified event of an experiement for which independent replications are performed, then the limiting proportion of experiments whose outcomes are in $A$ will, with probability 1, equal $P(A)$.
+\end{remark}
+After all this dum dum probability hoo-hah, we get to the real deal:
+\begin{theorem}[The Central Limit Theorem]
+    Let $X_{1},X_{2},\dotsc$ be a sequence of independent and identically distributed random variables, each having mean $\mu$ and variance $\sigma^{2}$. Then the distribution of 
+    \[\frac{X_{1}+\dotsi+X_{n}-n\mu}{\sigma\sqrt{n}}\]tends to the standard normal as $n\rightarrow\infty$. That is, for $-\infty<a<\infty$,
+    \[P\left\{\frac{X_{1}+\dotsi+X_{n}-n\mu}{\sigma\sqrt{n}}\leq a\right\}\rightarrow \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{a}e^{-x^{2}/2}\,dx\quad\textrm{as }n\rightarrow\infty.\]
+\end{theorem}
+\begin{remark}
+    This says that if the random variables have a finite mean $\mu$ and a finite variance $\sigma^{2}$, then the distribution of the sum of the first $n$ of them is, for large $n$, approximately that of a normal random variable with mean $n\mu$ and variance $n\sigma^{2}$.
+\end{remark}
+
+
+
+
+    
+\newpage
+\begin{center}
+    \includegraphics[scale=0.5]{Screenshot 2022-12-06 at 5.05.50 PM.png}\\[2cm]
+\end{center}
+\end{document}

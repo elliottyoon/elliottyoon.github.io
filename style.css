@@ -229,23 +229,6 @@ canvas {
   box-shadow: 0 0 10px 3px rgba(113, 60, 200, 0.2), inset 0 0 0 0 rgb(255 255 255 / 29%);
 }
 
-.icons img:hover {
-  color: red;
-}
-
-.icon {
-  position: relative;
-}
-.hover {
-  position: absolute;
-  left: 0;
-  top: 0;
-  visibility: hidden;
-}
-.hover:hover {
-  visibility: visible;
-  z-index: 100;
-}
 
 :root {
   --canvas-font-size: 2rem;

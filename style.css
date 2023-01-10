@@ -105,9 +105,18 @@ canvas {
   color: var(--color-purple);
   transition: all 0.5s ease-out;
 }
+.canvasContainer .nameContent p {
+  margin-top: 0;
+  opacity: 100%;
+  transition: all 2s ease-in;
+}
+.canvasContainer .nameContent .resume {
+  opacity: 0%;
+  transition: all 0.5s ease-out;
+}
 .canvasContainer:hover .nameContent p {
-    opacity: 30%;
-    transition: all 0.5s ease-in;
+  opacity: 30%;
+  transition: all 0.5s ease-in;
 }
 .canvasContainer:hover .resume {
   color: var(--color-dark-purple);

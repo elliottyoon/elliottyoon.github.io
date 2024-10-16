@@ -39,7 +39,6 @@ html, body {
   left: 20%;
   top: 60%;
   font-family: 'Montserrat', sans-serif;
-  /* font-family: 'Roboto', sans-serif; */
   font-size: var(--caption-font-size-md);  
   color: rgba(0, 0, 0, 0.9);
 }
@@ -221,7 +220,8 @@ canvas {
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
+  justify-content: center;
 }
 
 .icons a {
@@ -349,9 +349,10 @@ canvas {
   }
   .contact-links {
     font-size: var(--caption-font-size-sm);  
-
   }
-  
-
+  .center {
+    display: block;
+    padding-top: 15px;
+  }
 }
 

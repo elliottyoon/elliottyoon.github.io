@@ -323,6 +323,9 @@ canvas {
   .namePlate p {
     font-size: 1rem;
   }
+  .nameContent {
+    padding-top: 1rem;
+  }
   .resume {
     font-size: 1rem;
   }

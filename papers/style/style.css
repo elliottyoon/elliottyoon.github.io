@@ -6,9 +6,15 @@
   width: 80%;
 }
 
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .split-item img {
-  width: 80%;
-  height: auto;
+  max-width: 80vw;
+  max-height: 80vh;
 }
 
 .split-container {
@@ -55,4 +61,10 @@ li a {
 li a:hover {
   font-size: 25px;
   background: #f6f6f6;
+}
+
+@media screen and (max-width: 850px) {
+  .img-container {
+    display: none;
+  }
 }

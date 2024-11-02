@@ -201,17 +201,25 @@ canvas {
   justify-content: space-between;
 }
 
-.contact-links * {
-  margin: 10px;
+.text-links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
-.contact-links *:hover {
-  color: var(--color-dark-purple)
+.contact-links * {
+  margin: 10px;
 }
 
 .contact-links img {
   width: 40px;
   margin: 0px;
+}
+.contact-links img:hover {
+  color: var(--color-dark-purple)
+}
+.text-links *:hover {
+  color: var(--color-dark-purple);
 }
 
 .icons {
@@ -339,12 +347,24 @@ canvas {
     top: 53%;
     right: -105%;
   }
+  #footer {
+    margin-bottom: 20px;
+  }
 
   .contact-links {
     font-size: 1rem;
     display: flex;
     flex-wrap: nowrap;
-
+  }
+  .icons {
+    display: flex;
+    flex-direction: column;
+  }
+  .text-links {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
   }
   .contact-links img {
     width: 20px;

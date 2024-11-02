@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="shortcut icon" href="assets/hobbes.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href='https://css.gg/chevron-up.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto:wght@900&display=swap" rel="stylesheet">
+    <title>my white paper reading list!</title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+    <script type="module" src="components/app.js"></script>
+    
+    <div class="split-container">
+        <div class="split-item">
+            <h2>📚</h2>
+            <ul id="paper-list"></ul>
+        </div>
+        <div class="split-item">
+            <img src="assets/trees.jpg" alt="">
+        </div>
+
+    </div>
+
+    <script>
+        // list of 'pdf file name' : 'display name'
+        const pdfFiles = [
+            {'Aliasing-Limits-on-Translating-C-to-Safe-Rust.pdf': 'Aliasing Limits on Translating C to Safe Rust'},
+            {'Everything-you-want-to-know-about-pointer-based-checking.pdf': 'Everything you want to know about pointer based checking'},
+            {'Exploiting Upper and Lower Bounds in Top-Down Query Optimizations.pdf': 'Exploiting Upper and Lower Bounds in Top-Down Query Optimizations'},
+            {'Foundations for a Rust Like Borrow Checker for C.pdf': 'Foundations for a Rust Like Borrow Checker for C'},
+            {'How good are query optimizers, really.pdf': 'How good are query optimizers, really?'},
+            {'Noria.pdf': 'Noria:  dynamic, partially-stateful data-flow for high-performance web applications'},
+            {'To Tag or Not to Tag Translating Cs Unions to Rusts Tagged Unions.pdf': 'To Tag or Not to Tag Translating Cs Unions to Rusts Tagged Unions'},
+            {'Towards a Transpiler for C to Safer Rust.pdf': 'Towards a Transpiler for C to Safer Rust'},
+            {'Translating C to Safer Rust.pdf': 'Translating C to Safer Rust'}
+        ];
+
+        const paperList = document.getElementById('paper-list');
+
+        pdfFiles.forEach((pdf) => {
+            const pdfName = Object.keys(pdf)[0];
+            const displayName = pdf[pdfName];
+            const listItem = document.createElement('li');
+
+            // If the pdf name is malicioius javascript code, that'd be hilarious.
+            listItem.innerHTML = `<a href="assets/${pdfName}" target="_blank">${displayName}</a>`;
+            document.getElementById('paper-list').appendChild(listItem);
+        });
+
+    </script>
+
+</body>
+</html>

@@ -67,4 +67,17 @@ li a:hover {
   .img-container {
     display: none;
   }
+
+  .split-container {
+    padding-top: 20px;
+  }
+
+  .split-container {
+    display: block;
+    height: auto;
+  }
+
+  li {
+    font-size: 14px;
+  }
 }
